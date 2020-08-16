@@ -10,8 +10,9 @@ ssvm-wasi-helper = "=0.1.0"
 
 In your wasi functions
 ```rs
+use ssvm_wasi_helper::ssvm_wasi_helper::_initialize;
 pub fn func1() {
-  ssvm-wasi-helper::_initialize();
-  // do something
+  _initialize();
+  // do something which is related to wasi environment variables, arguments, and preopens.
 }
 ```
