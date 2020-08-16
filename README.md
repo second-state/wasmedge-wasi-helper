@@ -5,7 +5,7 @@
 In the Cargo.toml
 ```toml
 [dependencies]
-ssvm-wasi-helper = "=0.1.0"
+ssvm-wasi-helper = "=0.1.1"
 ```
 
 In your wasi functions
