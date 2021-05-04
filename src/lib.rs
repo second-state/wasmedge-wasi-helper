@@ -46,4 +46,28 @@ pub mod ssvm_wasi_helper {
             Ok(buf) => Ok(String::from_utf8_lossy(&buf).to_string()),
         }
     }
+
+    pub fn send_string_to_caller(s: &str) -> std::io::Result<()> {
+        // Get data path from the caller
+        let path = match std::env::var("SSVM_DATA_FROM_CALLEE") {
+            Err(_) => Err("Cannot find path from caller. Please check the SSVM_DATA_FROM_CALLEE is set"),
+            Ok(val) => Ok(val),
+        };
+
+        // Read the data from the given path.
+        std::fs::write(&path.unwrap(), s)?;
+        Ok(())
+    }
+
+    pub fn send_bytes_to_caller(bytes: &Vec<u8>) -> std::io::Result<()> {
+        // Get data path from the caller
+        let path = match std::env::var("SSVM_DATA_FROM_CALLEE") {
+            Err(_) => Err("Cannot find path from caller. Please check the SSVM_DATA_FROM_CALLEE is set"),
+            Ok(val) => Ok(val),
+        };
+
+        // Read the data from the given path.
+        std::fs::write(&path.unwrap(), bytes)?;
+        Ok(())
+    }
 }

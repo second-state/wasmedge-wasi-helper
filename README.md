@@ -5,7 +5,7 @@
 In the Cargo.toml
 ```toml
 [dependencies]
-ssvm-wasi-helper = "=0.1.2"
+ssvm-wasi-helper = "=0.1.3"
 ```
 
 ## To enable the wasi feature
@@ -38,5 +38,27 @@ use ssvm_wasi_helper::ssvm_wasi_helper::get_bytes_from_caller;
 pub fn func1() {
   let bs = get_bytes_from_caller();
   // do something with the Vec<u8> `bs`
+}
+```
+
+
+## To send string data to caller (with SSVM-go support)
+
+```rs
+use ssvm_wasi_helper::ssvm_wasi_helper::send_string_to_caller;
+pub fn func1() {
+  let s = "hello";
+  send_string_to_caller(s);
+}
+```
+
+
+## To get byte array data from caller (with SSVM-go support)
+
+```rs
+use ssvm_wasi_helper::ssvm_wasi_helper::send_bytes_to_caller;
+pub fn func1() {
+  let bs = vec![0u8, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  send_bytes_to_caller(bs);
 }
 ```
