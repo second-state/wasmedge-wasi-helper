@@ -1,4 +1,4 @@
-pub mod ssvm_wasi_helper {
+pub mod wasmedge_wasi_helper {
 
     #[no_mangle]
     pub fn _initialize() {
@@ -15,8 +15,8 @@ pub mod ssvm_wasi_helper {
 
     pub fn get_bytes_from_caller() -> Result<Vec<u8>, &'static str> {
         // Get data path from the caller
-        let path = match std::env::var("SSVM_DATA_TO_CALLEE") {
-            Err(_) => Err("No data found from caller. Please check the SSVM_DATA_TO_CALLEE is set"),
+        let path = match std::env::var("WASMEDGE_DATA_TO_CALLEE") {
+            Err(_) => Err("No data found from caller. Please check the WASMEDGE_DATA_TO_CALLEE is set"),
             Ok(val) => Ok(val),
         };
 
@@ -32,8 +32,8 @@ pub mod ssvm_wasi_helper {
 
     pub fn get_string_from_caller() -> Result<String, &'static str> {
         // Get data path from the caller
-        let path = match std::env::var("SSVM_DATA_TO_CALLEE") {
-            Err(_) => Err("No data found from caller. Please check the SSVM_DATA_TO_CALLEE is set"),
+        let path = match std::env::var("WASMEDGE_DATA_TO_CALLEE") {
+            Err(_) => Err("No data found from caller. Please check the WASMEDGE_DATA_TO_CALLEE is set"),
             Ok(val) => Ok(val),
         };
 
@@ -49,8 +49,8 @@ pub mod ssvm_wasi_helper {
 
     pub fn send_string_to_caller(s: &str) -> std::io::Result<()> {
         // Get data path from the caller
-        let path = match std::env::var("SSVM_DATA_FROM_CALLEE") {
-            Err(_) => Err("Cannot find path from caller. Please check the SSVM_DATA_FROM_CALLEE is set"),
+        let path = match std::env::var("WASMEDGE_DATA_FROM_CALLEE") {
+            Err(_) => Err("Cannot find path from caller. Please check the WASMEDGE_DATA_FROM_CALLEE is set"),
             Ok(val) => Ok(val),
         };
 
@@ -61,8 +61,8 @@ pub mod ssvm_wasi_helper {
 
     pub fn send_bytes_to_caller(bytes: &Vec<u8>) -> std::io::Result<()> {
         // Get data path from the caller
-        let path = match std::env::var("SSVM_DATA_FROM_CALLEE") {
-            Err(_) => Err("Cannot find path from caller. Please check the SSVM_DATA_FROM_CALLEE is set"),
+        let path = match std::env::var("WASMEDGE_DATA_FROM_CALLEE") {
+            Err(_) => Err("Cannot find path from caller. Please check the WASMEDGE_DATA_FROM_CALLEE is set"),
             Ok(val) => Ok(val),
         };
 

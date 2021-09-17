@@ -1,13 +1,13 @@
 [package]
-name = "ssvm-wasi-helper"
-version = "0.1.3"
+name = "wasmedge-wasi-helper"
+version = "0.2.0"
 authors = ["hydai <hydai@secondstate.io>"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
-keywords = ["ssvm", "wasm", "wasi"]
+keywords = ["wasmedge", "wasm", "wasi"]
 readme = "README.md"
-homepage = "https://github.com/second-state/ssvm-wasi-helper/"
-repository = "https://github.com/second-state/ssvm-wasi-helper/"
+homepage = "https://github.com/second-state/wasmedge-wasi-helper/"
+repository = "https://github.com/second-state/wasmedge-wasi-helper/"
 description = "A rust crate to call the wasm-wasi initialization helper function."
 
 [dependencies]
